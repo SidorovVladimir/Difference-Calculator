@@ -22,5 +22,6 @@ rules:
     - error
     - ignorePackages
     - js: always
+  import/no-extraneous-dependencies: [error, { dependencies: true }]
   no-underscore-dangle: [2, { 'allow': ['__filename', '__dirname'] }]
 

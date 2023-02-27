@@ -1,17 +1,20 @@
 import _ from 'lodash';
 import fs from 'fs';
-import { resolve } from 'node:path';
+import { resolve, extname } from 'node:path';
+import parseFile from './parsers.js';
 
 const readFile = (file) => fs.readFileSync(file, 'utf-8');
 
 const getFullFilePath = (filepath) => resolve(filepath);
 
+const getFormat = (filepath) => extname(filepath).substring(1);
+
 const genDiff = (filepath1, filepath2) => {
   const pathFile1 = getFullFilePath(filepath1);
   const pathFile2 = getFullFilePath(filepath2);
 
-  const dataFile1 = JSON.parse(readFile(pathFile1));
-  const dataFile2 = JSON.parse(readFile(pathFile2));
+  const dataFile1 = parseFile(readFile(pathFile1), getFormat(filepath1));
+  const dataFile2 = parseFile(readFile(pathFile2), getFormat(filepath2));
 
   const keysFile1 = Object.keys(dataFile1);
   const keysFile2 = Object.keys(dataFile2);
