@@ -18,3 +18,9 @@ run5:
 	gendiff -f plain './__fixtures__/file1.yml' './__fixtures__/file2.yml'
 run6:
 	gendiff -f plain './__fixtures__/file1.json' './__fixtures__/file2.yml'
+run7:
+	gendiff -f json './__fixtures__/file1.json' './__fixtures__/file2.json'
+run8:
+	gendiff -f json './__fixtures__/file1.yml' './__fixtures__/file2.yml'
+run9:
+	gendiff -f json './__fixtures__/file1.json' './__fixtures__/file2.yml'
