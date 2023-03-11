@@ -40,6 +40,16 @@ cd frontend-project-46
 ```
 make install
 ```
+
+4. Install the package with the command:
+
+```
+npm link
+``` 
+or 
+```
+sudo npm link
+```
 ### Demonstration of the utility:
 
 #### Help output:
