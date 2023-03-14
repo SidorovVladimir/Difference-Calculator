@@ -26,13 +26,13 @@ Utility features:
 1. Clone the game repository with the command:
 
 ``` 
-git clone git@github.com:SidorovVladimir/frontend-project-46.git 
+git clone git@github.com:SidorovVladimir/Difference-Calculator.git 
 ```
 
 2. Go to the directory with the utility with the command:
 
 ```
-cd frontend-project-46
+cd Difference-Calculator
 ```
 
 3. Install the dependencies with the command:

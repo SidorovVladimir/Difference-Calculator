@@ -1,14 +1,14 @@
 import fs from 'fs';
-import { resolve, extname } from 'node:path';
+import path from 'node:path';
 import parseFile from './parsers.js';
 import getTree from './getTree.js';
 import formatter from './formatters/index.js';
 
 const readFile = (file) => fs.readFileSync(file, 'utf-8');
 
-const getFullFilePath = (filepath) => resolve(filepath);
+const getFullFilePath = (filepath) => path.resolve(filepath);
 
-const getFormat = (filepath) => extname(filepath).substring(1);
+const getFormat = (filepath) => path.extname(filepath).substring(1);
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const pathFile1 = getFullFilePath(filepath1);
