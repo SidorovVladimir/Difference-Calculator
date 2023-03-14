@@ -15,8 +15,7 @@ Utility features:
 
 #### System requirements and installation guide:
 
-1. Unix-like operating system or Windows.
-2. Node.js v 16 or higher:
+1. Node.js v 16 or higher:
 ```
     node --version
 ```
