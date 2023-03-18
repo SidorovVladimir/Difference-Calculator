@@ -19,7 +19,7 @@ const stringify = (data, depth) => {
 };
 
 const iter = (diff, depth = 1) => diff.map((node) => {
-  switch (node.status) {
+  switch (node.type) {
     case 'deleted':
       return `${getIndent(depth)}- ${node.key}: ${stringify(node.value, depth)}`;
     case 'added':

@@ -17,10 +17,10 @@ const getFullPath = (node, currentPath) => {
   return `${node.key}`;
 };
 
-const iter = (diff, path) => diff.filter((node) => node.status !== 'unchanged')
+const iter = (diff, path) => diff.filter((node) => node.type !== 'unchanged')
   .map((node) => {
     const currentPath = getFullPath(node, path);
-    switch (node.status) {
+    switch (node.type) {
       case 'added':
         return `Property '${currentPath}' was added with value: ${stringify(node.value)}`;
       case 'deleted':

@@ -4,23 +4,23 @@ import parseFile from './parsers.js';
 import getTree from './getTree.js';
 import formatter from './formatters/index.js';
 
-const readFile = (file) => fs.readFileSync(file, 'utf-8');
-
 const getFullFilePath = (filepath) => path.resolve(filepath);
 
 const getFormat = (filepath) => path.extname(filepath).substring(1);
 
+const readFile = (file) => {
+  const fullPath = getFullFilePath(file);
+  const data = fs.readFileSync(fullPath, 'utf-8');
+
+  return parseFile(data, getFormat(fullPath));
+};
+
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
-  const pathFile1 = getFullFilePath(filepath1);
-  const pathFile2 = getFullFilePath(filepath2);
+  const data1 = readFile(filepath1);
+  const data2 = readFile(filepath2);
 
-  const dataFile1 = readFile(pathFile1);
-  const dataFile2 = readFile(pathFile2);
+  const diff = getTree(data1, data2);
 
-  const diff = getTree(
-    parseFile(dataFile1, getFormat(filepath1)),
-    parseFile(dataFile2, getFormat(filepath2)),
-  );
   return formatter(diff, formatName);
 };
 export default genDiff;
