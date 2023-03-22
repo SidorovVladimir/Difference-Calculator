@@ -7,17 +7,18 @@ const stringify = (value) => {
   if (_.isString(value)) {
     return `'${value}'`;
   }
-  return `${value}`;
+  return String(value);
 };
 
 const getFullPath = (node, currentPath) => {
   if (currentPath !== '') {
     return `${currentPath}.${node.key}`;
   }
-  return `${node.key}`;
+  return node.key;
 };
 
-const iter = (diff, path) => diff.filter((node) => node.type !== 'unchanged')
+const iter = (diff, path) => diff
+  .filter((node) => node.type !== 'unchanged')
   .map((node) => {
     const currentPath = getFullPath(node, path);
     switch (node.type) {
